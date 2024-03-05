@@ -1,12 +1,13 @@
 import React from "react";
-import { styled } from "styled-components";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import HomePage from "./components/HomePage";
 
 export default function App() {
-  return <AppStyled>App test</AppStyled>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
-
-const AppStyled = styled.div`
-  background: red;
-  padding: 10px;
-  color: white;
-`;
