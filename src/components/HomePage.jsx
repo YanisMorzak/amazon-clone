@@ -1,13 +1,28 @@
 import React from 'react'
 import { styled } from 'styled-components';
+import { theme } from '../theme';
+import Carousel from './Carousel';
 
 export default function HomePage() {
   return (
-    <HomePageStyled>HomePage</HomePageStyled>
+    <HomePageStyled>
+        <div className="container">
+            <h1>Amazon</h1>
+            <Carousel />
+        </div>
+    </HomePageStyled>
   )
 }
 
 const HomePageStyled = styled.div`
-background: red;
+background: ${theme.colors.background};
+
+.container{
+    background: #c87dc8;
+    min-width: 1000px;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
   
 `;
