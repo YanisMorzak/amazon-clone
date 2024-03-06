@@ -4,6 +4,7 @@ import { theme } from '../theme';
 import Carousel from './Carousel';
 import HomePageCard from './HomePageCard';
 import { dataCardHome } from '../enums/dataCard';
+import CarouselCategory from './CarouselCategory';
 
 export default function HomePage() {
     const [cardData, setcardData] = useState(dataCardHome)
@@ -18,6 +19,7 @@ export default function HomePage() {
                 })}
                 
             </div>
+            <CarouselCategory />
         </div>
     </HomePageStyled>
   )
