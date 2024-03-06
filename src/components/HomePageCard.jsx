@@ -13,7 +13,7 @@ export default function HomePageCard({title, image, link}) {
 const HomePageCardStyled = styled.div`
 height: 420px;
 background: white;
-margin: 10px;
+margin: 15px;
 
 .title{
     font-size: 21px;

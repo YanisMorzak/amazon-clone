@@ -35,8 +35,7 @@ background: ${theme.colors.background};
     .card{
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        margin-top: -100px;
-
+        margin: -100px 20px 0 20px;
     }
 }
 
