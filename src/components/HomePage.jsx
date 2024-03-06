@@ -5,6 +5,7 @@ import Carousel from './Carousel';
 import HomePageCard from './HomePageCard';
 import { dataCardHome } from '../enums/dataCard';
 import CarouselCategory from './CarouselCategory';
+import CarouselProduct from './CarouselProduct';
 
 export default function HomePage() {
     const [cardData, setcardData] = useState(dataCardHome)
@@ -19,6 +20,7 @@ export default function HomePage() {
                 })}
                 
             </div>
+            <CarouselProduct />
             <CarouselCategory />
         </div>
     </HomePageStyled>

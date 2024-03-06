@@ -10,7 +10,7 @@ export default function CarouselCategory() {
         <Swiper
             slidesPerView={5}
             loop={true}
-            spaceBetween={10}
+            spaceBetween={2}
             navigation={true}
             modules={[Navigation]}>
                 <SwiperSlide>
@@ -46,6 +46,10 @@ margin-top: 15px;
     font-weight: bold;
     padding: 5px;
     margin-bottom: 8px;
+}
+
+img{
+    padding: 0 50px;
 }
   
 `;
