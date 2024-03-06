@@ -44,7 +44,6 @@ export default function Carousel() {
 }
 
 const CarouselStyled = styled.div`
-background: ${theme.colors.yellow};
 height: 600px;
 
 .swiper{
@@ -55,7 +54,7 @@ height: 600px;
     }
 }
 .gradient{
-    height: 200px;
+    height: 300px;
     background: linear-gradient(to bottom, black, transparent);
 }
   
