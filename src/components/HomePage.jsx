@@ -1,17 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { styled } from 'styled-components';
 import { theme } from '../theme';
 import Carousel from './Carousel';
 import HomePageCard from './HomePageCard';
+import { dataCardHome } from '../enums/dataCard';
 
 export default function HomePage() {
+    const [cardData, setcardData] = useState(dataCardHome)
   return (
     <HomePageStyled>
         <div className="container">
             <h1>Amazon</h1>
             <Carousel />
             <div className="card">
-                <HomePageCard title={"We have a big surprise !"} image={"/images/home_grid_1.jpg"} link={"See terms and conditions"}/>
+                {cardData && cardData.map((card) => {
+                    return <HomePageCard key={card.id} title={card.title} image={card.imageSource} link={card.link}/>
+                })}
+                
             </div>
         </div>
     </HomePageStyled>
@@ -28,9 +33,10 @@ background: ${theme.colors.background};
     margin: 0 auto;
 
     .card{
-        border: 1px solid red;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        margin-top: -100px;
+
     }
 }
 

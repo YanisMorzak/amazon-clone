@@ -23,11 +23,11 @@ export default function Carousel() {
                  <SwiperSlide>
                      <img src="/images/carousel_2.jpg" />
                  </SwiperSlide>
-                 <SwiperSlide>
+                 {/* <SwiperSlide>
                      <video controls muted="muted">
                         <source src='/images/carousel_vid.mp4' type='video/mp4'/>
                      </video>
-                 </SwiperSlide>
+                 </SwiperSlide> */}
                  <SwiperSlide>
                      <img src="/images/carousel_4.jpg" />
                  </SwiperSlide>
@@ -47,14 +47,14 @@ const CarouselStyled = styled.div`
 height: 600px;
 
 .swiper{
-    height: 300px;
+    height: 400px;
 
     img{
-        width: 100%;
+        width: 100%;      
     }
 }
 .gradient{
-    height: 300px;
+    height: 200px;
     background: linear-gradient(to bottom, black, transparent);
 }
   
