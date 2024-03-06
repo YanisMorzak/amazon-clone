@@ -6,8 +6,10 @@ import { styled } from 'styled-components';
 export default function CarouselCategory() {
   return (
     <CarouselCategoryStyled>
+        <div className='shop'>Shop By Category</div>
         <Swiper
             slidesPerView={5}
+            loop={true}
             spaceBetween={10}
             navigation={true}
             modules={[Navigation]}>
@@ -36,5 +38,14 @@ export default function CarouselCategory() {
 
 const CarouselCategoryStyled = styled.div`
 background: white;
+padding: 10px;
+margin-top: 15px;
+
+.shop{
+    font-size: 21px;
+    font-weight: bold;
+    padding: 5px;
+    margin-bottom: 8px;
+}
   
 `;
