@@ -13,7 +13,6 @@ export default function HomePage() {
   return (
     <HomePageStyled>
         <div className="container">
-            <h1>Amazon</h1>
             <Carousel />
             <div className="card">
                 {cardData && cardData.map((card) => {
