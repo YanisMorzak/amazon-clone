@@ -33,6 +33,13 @@ export default function NavBar() {
           </div>
         </div>
       </div>
+      <div className="nav-bottom">
+        <span>Todays Deals</span>
+        <span>Customer Service</span>
+        <span>Registry</span>
+        <span>Gift Cards</span>
+        <span>Best Sell</span>
+      </div>
     </NavBarStyled>
   );
 }
@@ -41,10 +48,9 @@ const NavBarStyled = styled.header`
   min-width: 1000px;
   background: ${theme.colors.default};
   color: white;
-  height: 60px;
 
   .container {
-    height: 100%;
+    height: 60px;
     display: flex;
     justify-content: space-between;
 
@@ -74,10 +80,17 @@ const NavBarStyled = styled.header`
     }
 
     .search {
-      width: 60%;
+      width: 55%;
       display: flex;
       justify-content: left;
       align-items: center;
+
+      @media screen and (max-width: 1380px) {
+        width: 45%;
+      }
+      @media screen and (max-width: 1200px) {
+        width: 38%;
+      }
     }
     .right {
       margin-right: 15px;
@@ -122,6 +135,18 @@ const NavBarStyled = styled.header`
           font-weight: bold;
         }
       }
+    }
+  }
+  .nav-bottom {
+    background: ${theme.colors.light_blue};
+    height: 35px;
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+
+    span {
+      margin-right: 0.75rem;
+      font-size: 16px;
     }
   }
 `;

@@ -7,7 +7,7 @@ export default function Search() {
   return (
     <SearchStyled>
       <select className="select">
-        <option>All Category</option>
+        <option>All Items</option>
         <option>Deals</option>
         <option>Amazon</option>
         <option>Fashion</option>
