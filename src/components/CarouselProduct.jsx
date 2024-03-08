@@ -17,7 +17,7 @@ export default function CarouselProduct() {
       >
         {Array.from({ length: 9 }, (_, i) => (
           <SwiperSlide key={i}>
-            <Link to={`/product`}>
+            <Link to={`/product/${i}`}>
               <img src={`/images/product_${i}_small.jpg`} />
             </Link>
           </SwiperSlide>
