@@ -3,18 +3,13 @@ import { styled } from "styled-components";
 import { theme } from "../theme";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
 import Search from "./Search";
+import NavbarLeftSide from "./NavbarLeftSide";
 
 export default function NavBar() {
   return (
     <NavBarStyled>
       <div className="container">
-        <div className="left">
-          <img src="/images/amazon.png" alt="logo amazon" />
-          <div className="left-text">
-            <div className="left-text-1">Deliver to</div>
-            <div className="left-text-2">United Kingdom</div>
-          </div>
-        </div>
+        <NavbarLeftSide />
         <div className="search">
           <Search />
         </div>
@@ -53,31 +48,6 @@ const NavBarStyled = styled.header`
     height: 60px;
     display: flex;
     justify-content: space-between;
-
-    .left {
-      margin-left: 15px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      img {
-        height: 35px;
-        margin: 2px;
-      }
-
-      .left-text {
-        padding-left: 15px;
-        padding-right: 15px;
-
-        .left-text-1 {
-          font-size: 14px;
-        }
-        .left-text-2 {
-          font-size: 16px;
-          font-weight: bold;
-        }
-      }
-    }
 
     .search {
       width: 55%;
