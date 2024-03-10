@@ -27,7 +27,7 @@ export default function ProductPage() {
         <div className="container">
           <div className="grid-container">
             <div className="left">
-              <img src={`${product.image}`} alt="" />
+              <img src={`${product.image}`} />
             </div>
             <div className="middle">
               <ProductDetails product={product} />
@@ -61,6 +61,7 @@ const ProductPageStyled = styled.div`
       .left {
         grid-column: 1 / span 3;
         background: white;
+        border-radius: 4px;
         padding: 10px;
         display: flex;
         justify-content: center;
@@ -68,11 +69,19 @@ const ProductPageStyled = styled.div`
 
         img {
           width: 60%;
+          border: 1px solid ${theme.colors.background};
+          padding: 17px;
+
+          @media screen and (min-width: 1220px) {
+            width: 55%;
+          }
         }
       }
       .middle {
         grid-column: 4 / span 5;
-        background: pink;
+        background: white;
+        border-radius: 4px;
+        padding: 10px;
       }
       .right {
         grid-column: 9 / span 2;
