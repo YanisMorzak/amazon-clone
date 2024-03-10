@@ -3,6 +3,7 @@ import { useParams } from "react-router";
 import { callApi } from "../utils/CallApi";
 import { styled } from "styled-components";
 import { theme } from "../theme";
+import ProductDetails from "./ProductDetails";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -28,7 +29,9 @@ export default function ProductPage() {
             <div className="left">
               <img src={`${product.image}`} alt="" />
             </div>
-            <div className="middle"></div>
+            <div className="middle">
+              <ProductDetails product={product} />
+            </div>
             <div className="right"></div>
           </div>
         </div>
