@@ -81,7 +81,7 @@ const ProductPageStyled = styled.div`
         grid-column: 4 / span 5;
         background: white;
         border-radius: 4px;
-        padding: 10px;
+        padding: 15px;
       }
       .right {
         grid-column: 9 / span 2;
