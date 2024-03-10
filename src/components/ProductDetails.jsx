@@ -1,5 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
+import ProductBadge from "./ProductBadge";
 
 export default function ProductDetails({ product, ratings }) {
   return (
@@ -8,7 +9,9 @@ export default function ProductDetails({ product, ratings }) {
       <div className="brand">{product.brand}</div>
       <div className="rating">Rating: {product.avgRating}</div>
       <div className="attribute">{product.attribute}</div>
-      <div>{product.badge}</div>
+      <div>
+        <ProductBadge badge={product.badge} />
+      </div>
     </ProductDetailsStyled>
   );
 }
