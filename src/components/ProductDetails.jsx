@@ -17,6 +17,7 @@ export default function ProductDetails({ product, ratings }) {
 }
 
 const ProductDetailsStyled = styled.div`
+  height: 100%;
   .title {
     font-size: 21px;
     font-weight: bold;
@@ -33,6 +34,6 @@ const ProductDetailsStyled = styled.div`
   .attribute {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 2px;
+    margin-bottom: 12px;
   }
 `;
