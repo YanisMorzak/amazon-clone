@@ -1,13 +1,19 @@
 import React from "react";
 import { styled } from "styled-components";
 import ProductBadge from "./ProductBadge";
+import ProductRatings from "./ProductRatings";
 
-export default function ProductDetails({ product, ratings }) {
+export default function ProductDetails({ product }) {
   return (
     <ProductDetailsStyled>
       <div className="title">{product.title}</div>
       <div className="brand">{product.brand}</div>
-      <div className="rating">Rating: {product.avgRating}</div>
+      <div className="rating">
+        <ProductRatings
+          avgRating={product.avgRating}
+          ratings={product.ratings}
+        />
+      </div>
       <div className="attribute">{product.attribute}</div>
       <div>
         <ProductBadge badge={product.badge} />
