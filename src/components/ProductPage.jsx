@@ -4,7 +4,7 @@ import { callApi } from "../utils/CallApi";
 import { styled } from "styled-components";
 import { theme } from "../theme";
 import ProductDetails from "./ProductDetails";
-import { US_CURRENCY } from "../utils/constants";
+import ProductPurchaseInfos from "./ProductPurchaseInfos";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -35,20 +35,7 @@ export default function ProductPage() {
               <div className="description">{product.description}</div>
             </div>
             <div className="right">
-              <div>{US_CURRENCY.format(product.price)}</div>
-              <div>{US_CURRENCY.format(product.oldPrice)}</div>
-              <div>FREE Returns</div>
-              <div>FREE Delivery</div>
-              <div>In Stock</div>
-              <div>
-                Quantity:
-                <select>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                </select>
-              </div>
-              <button>Add to Cart</button>
+              <ProductPurchaseInfos product={product} />
             </div>
           </div>
         </div>
@@ -64,8 +51,8 @@ const ProductPageStyled = styled.div`
   .container {
     min-width: 1000px;
     max-width: 1500px;
-    background: orange;
     margin: 0 auto;
+    padding: 10px;
 
     .grid-container {
       display: grid;
