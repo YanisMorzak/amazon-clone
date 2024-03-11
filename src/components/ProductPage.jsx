@@ -4,6 +4,7 @@ import { callApi } from "../utils/CallApi";
 import { styled } from "styled-components";
 import { theme } from "../theme";
 import ProductDetails from "./ProductDetails";
+import { US_CURRENCY } from "../utils/constants";
 
 export default function ProductPage() {
   const { id } = useParams();
@@ -34,8 +35,8 @@ export default function ProductPage() {
               <div className="description">{product.description}</div>
             </div>
             <div className="right">
-              <div>{product.price}</div>
-              <div>{product.oldPrice}</div>
+              <div>{US_CURRENCY.format(product.price)}</div>
+              <div>{US_CURRENCY.format(product.oldPrice)}</div>
               <div>FREE Returns</div>
               <div>FREE Delivery</div>
               <div>In Stock</div>
