@@ -1,10 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 
 export default function NavbarLeftSide() {
   return (
     <NavbarLeftSideStyled>
-      <img src="/images/amazon.png" alt="logo amazon" />
+      <Link to={"/"}>
+        <img src="/images/amazon.png" alt="logo amazon" />
+      </Link>
       <div className="left-text">
         <div className="left-text-1">Deliver to</div>
         <div className="left-text-2">United Kingdom</div>
