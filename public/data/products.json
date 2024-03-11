@@ -53,7 +53,8 @@
         "avgRating": 5,
         "ratings": 29283,
         "price": 10.00,
-        "oldPrice": 20.00
+        "oldPrice": 20.00,
+        "badge": "seller"
 
     },
     "4" :{

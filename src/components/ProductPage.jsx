@@ -31,8 +31,24 @@ export default function ProductPage() {
             </div>
             <div className="middle">
               <ProductDetails product={product} />
+              <div className="description">{product.description}</div>
             </div>
-            <div className="right"></div>
+            <div className="right">
+              <div>{product.price}</div>
+              <div>{product.oldPrice}</div>
+              <div>FREE Returns</div>
+              <div>FREE Delivery</div>
+              <div>In Stock</div>
+              <div>
+                Quantity:
+                <select>
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                </select>
+              </div>
+              <button>Add to Cart</button>
+            </div>
           </div>
         </div>
       </ProductPageStyled>
@@ -82,10 +98,15 @@ const ProductPageStyled = styled.div`
         background: white;
         border-radius: 4px;
         padding: 15px;
+        .description {
+          margin-top: 10px;
+        }
       }
       .right {
         grid-column: 9 / span 2;
-        background: green;
+        background: white;
+        border-radius: 4px;
+        padding: 15px;
       }
     }
   }

@@ -2,12 +2,15 @@ import React from "react";
 import { styled } from "styled-components";
 import ProductBadge from "./ProductBadge";
 import ProductRatings from "./ProductRatings";
+import { theme } from "../theme";
 
 export default function ProductDetails({ product }) {
   return (
     <ProductDetailsStyled>
       <div className="title">{product.title}</div>
-      <div className="brand">{product.brand}</div>
+      <div className="brand">
+        by <span className="brand-name">{product.brand}</span>
+      </div>
       <div className="rating">
         <ProductRatings
           avgRating={product.avgRating}
@@ -23,7 +26,8 @@ export default function ProductDetails({ product }) {
 }
 
 const ProductDetailsStyled = styled.div`
-  height: 100%;
+  border-bottom: 1px solid #bbbfbf;
+  padding-bottom: 10px;
   .title {
     font-size: 21px;
     font-weight: bold;
@@ -32,6 +36,9 @@ const ProductDetailsStyled = styled.div`
   .brand {
     font-size: 16px;
     margin-bottom: 2px;
+    .brand-name {
+      color: #086aa7;
+    }
   }
   .rating {
     font-size: 16px;
