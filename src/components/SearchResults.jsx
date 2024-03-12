@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { callApi } from "../utils/CallApi";
+import { styled } from "styled-components";
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
@@ -17,8 +18,10 @@ export default function SearchResults() {
           product.title.toLowerCase().includes(searchTerm.toLowerCase())
         );
         setProducts(results);
+        console.log("products: ", products);
       } else {
         setProducts(categoryResults);
+        console.log("products: ", products);
       }
     });
   };
@@ -27,5 +30,24 @@ export default function SearchResults() {
     getSearchResults();
   }, [searchParams]);
 
-  return <div>SearchResults</div>;
+  return (
+    <SearchResultsStyled>
+      {products &&
+        products.map((product, key) => {
+          return (
+            <Link key={key} to={`/product/${product.id}`}>
+              <div className="title">{product.title}</div>;
+            </Link>
+          );
+        })}
+    </SearchResultsStyled>
+  );
 }
+
+const SearchResultsStyled = styled.div`
+  min-width: 1000px;
+  max-width: 1300px;
+  .title {
+    height: 250px;
+  }
+`;
