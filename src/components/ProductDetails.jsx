@@ -2,12 +2,14 @@ import React from "react";
 import { styled } from "styled-components";
 import ProductBadge from "./ProductBadge";
 import ProductRatings from "./ProductRatings";
-import { theme } from "../theme";
+import { Link } from "react-router-dom";
 
 export default function ProductDetails({ product }) {
   return (
     <ProductDetailsStyled>
-      <div className="title">{product.title}</div>
+      <Link to={`/product/${product.id}`} style={{ textDecoration: "none" }}>
+        <div className="title">{product.title}</div>
+      </Link>
       <div className="brand">
         by <span className="brand-name">{product.brand}</span>
       </div>
@@ -32,6 +34,10 @@ const ProductDetailsStyled = styled.div`
     font-size: 21px;
     font-weight: bold;
     margin-bottom: 2px;
+    color: black;
+    &:hover {
+      color: #e67a00;
+    }
   }
   .brand {
     font-size: 16px;

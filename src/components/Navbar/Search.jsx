@@ -121,6 +121,7 @@ const SearchStyled = styled.div`
     }
 
     .button-container {
+      cursor: pointer;
       width: 48px;
       height: 100%;
       display: flex;
@@ -128,6 +129,7 @@ const SearchStyled = styled.div`
       align-items: center;
 
       .button {
+        cursor: pointer;
         background: transparent;
         border: none;
         color: rgb(51, 51, 51);
