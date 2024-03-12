@@ -3,10 +3,29 @@ import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { theme } from "../../theme";
 import { callApi } from "../../utils/CallApi";
+import { useNavigate } from "react-router";
+import { createSearchParams } from "react-router-dom";
 
 export default function Search() {
   const [suggestions, setSuggestions] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
+  const [category, setCategory] = useState("All");
+  const navigate = useNavigate();
+
+  const onHandleSubmit = (e) => {
+    e.preventDefault();
+
+    navigate({
+      pathname: "search",
+      search: `${createSearchParams({
+        category: `${category}`,
+        searchTerm: `${searchTerm}`,
+      })}`,
+    });
+
+    setSearchTerm("");
+    setCategory("All");
+  };
 
   const getSuggestions = () => {
     callApi(`data/suggestions.json`).then((suggestionResults) => {
@@ -21,7 +40,10 @@ export default function Search() {
   return (
     <SearchStyled>
       <div className="container">
-        <select className="select">
+        <select
+          className="select"
+          onChange={(e) => setCategory(e.target.value)}
+        >
           <option>All Items</option>
           <option>Deals</option>
           <option>Amazon</option>
@@ -35,7 +57,7 @@ export default function Search() {
           onChange={(e) => setSearchTerm(e.target.value)}
         />
         <div className="button-container">
-          <button className="button">
+          <button className="button" onClick={onHandleSubmit}>
             <MagnifyingGlassIcon />
           </button>
         </div>
