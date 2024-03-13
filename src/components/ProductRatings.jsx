@@ -34,6 +34,6 @@ const ProductRatingsStyled = styled.div`
   .rating {
     color: #086aa7;
     margin-left: 15px;
-    margin-top: 10px;
+    /* margin-top: 10px; */
   }
 `;
