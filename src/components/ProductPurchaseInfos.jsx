@@ -3,6 +3,7 @@ import { US_CURRENCY } from "../utils/constants";
 import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
+import { Link } from "react-router-dom";
 
 export default function ProductPurchaseInfos({ product, setproduct }) {
   const dispatch = useDispatch();
@@ -32,12 +33,14 @@ export default function ProductPurchaseInfos({ product, setproduct }) {
           <option>3</option>
         </select>
       </div>
-      <button
-        onClick={() => dispatch(addToCart(addQuantityToProduct()))}
-        className="button-cart"
-      >
-        Add to Cart
-      </button>
+      <Link to={"/checkout"}>
+        <button
+          onClick={() => dispatch(addToCart(addQuantityToProduct()))}
+          className="button-cart"
+        >
+          Add to Cart
+        </button>
+      </Link>
     </ProductPurchaseInfosStyled>
   );
 }
