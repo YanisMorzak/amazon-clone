@@ -4,9 +4,14 @@ import { styled } from "styled-components";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../redux/cartSlice";
 
-export default function ProductPurchaseInfos({ product }) {
+export default function ProductPurchaseInfos({ product, setproduct }) {
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState("1");
+
+  const addQuantityToProduct = () => {
+    setproduct((product.quantity = quantity));
+    return product;
+  };
   return (
     <ProductPurchaseInfosStyled>
       <div className="price">{US_CURRENCY.format(product.price)}</div>
@@ -27,7 +32,10 @@ export default function ProductPurchaseInfos({ product }) {
           <option>3</option>
         </select>
       </div>
-      <button onClick={() => dispatch(addToCart())} className="button-cart">
+      <button
+        onClick={() => dispatch(addToCart(addQuantityToProduct()))}
+        className="button-cart"
+      >
         Add to Cart
       </button>
     </ProductPurchaseInfosStyled>
