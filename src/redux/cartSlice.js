@@ -10,7 +10,18 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action) => {
-      state.productsNumber += 1;
+      // check if in product array
+      const addProductExists = state.products.find(
+        (product) => product.id === action.payload.id
+      );
+      if (addProductExists) {
+        addProductExists.quantity += parseInt(action.payload.quantity);
+      } else {
+        state.products.push({
+          ...action.payload,
+          quantity: parseInt(action.payload.quantity),
+        });
+      }
     },
     removeFromCart: (state, action) => {},
   },
