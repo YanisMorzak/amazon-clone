@@ -22,6 +22,8 @@ export const cartSlice = createSlice({
           quantity: parseInt(action.payload.quantity),
         });
       }
+      state.productsNumber =
+        state.productsNumber + parseInt(action.payload.quantity);
     },
     removeFromCart: (state, action) => {},
   },
