@@ -1,12 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 import { theme } from "../theme";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { US_CURRENCY } from "../utils/constants";
 import CheckoutProductSide from "./CheckoutProductSide";
 
 export default function Checkout() {
-  const products = useSelector((state) => state.cart.products);
   const itemsNumber = useSelector((state) => state.cart.productsNumber);
   const subtotal = useSelector((state) =>
     state.cart.products.reduce(
