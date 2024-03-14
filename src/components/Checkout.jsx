@@ -2,14 +2,8 @@ import React from "react";
 import { styled } from "styled-components";
 import { theme } from "../theme";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import ProductDetails from "./ProductDetails";
 import { US_CURRENCY } from "../utils/constants";
-import {
-  decrementInCart,
-  incrementInCart,
-  removeFromCart,
-} from "../redux/cartSlice";
+import CheckoutProductSide from "./CheckoutProductSide";
 
 export default function Checkout() {
   const products = useSelector((state) => state.cart.products);
@@ -20,68 +14,12 @@ export default function Checkout() {
       0
     )
   );
-  const dispatch = useDispatch();
 
   return (
     <CheckoutStyled>
       <div className="container">
         <div className="grid-container">
-          <div className="product-side">
-            <span className="title-checkout">Shopping Cart</span>
-            {products.map((product) => {
-              return (
-                <div key={product.id}>
-                  <div className="product-grid">
-                    <div className="product-grid-left">
-                      <div className="image-small">
-                        <Link to={`/product/${product.id}`}>
-                          <img src={product.image} alt="" />
-                        </Link>
-                      </div>
-                      <div className="product-details">
-                        <ProductDetails product={product} />
-                        <div>
-                          <button
-                            onClick={() => dispatch(removeFromCart(product.id))}
-                          >
-                            Delete
-                          </button>
-                        </div>
-                        <div className="quantity-change">
-                          <div
-                            className="minus"
-                            onClick={() =>
-                              dispatch(decrementInCart(product.id))
-                            }
-                          >
-                            -
-                          </div>
-                          <div className="quantity-value">
-                            {product.quantity}
-                          </div>
-                          <div
-                            className="plus"
-                            onClick={() =>
-                              dispatch(incrementInCart(product.id))
-                            }
-                          >
-                            +
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="product-grid-right">
-                      <div>{US_CURRENCY.format(product.price)}</div>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-            <div className="subtotal">
-              Subtotal ({itemsNumber} items):{" "}
-              <span className="sub-price">{US_CURRENCY.format(subtotal)}</span>
-            </div>
-          </div>
+          <CheckoutProductSide />
           <div className="checkout-side">
             <div className="delivery-checkout">
               Your order qualifies for{" "}
@@ -116,108 +54,6 @@ const CheckoutStyled = styled.div`
       grid-template-columns: repeat(8, minmax(0, 1fr));
       gap: 10px;
 
-      .product-side {
-        grid-column: 1 / span 6;
-        padding: 10px 15px;
-        background: white;
-        border-radius: 3px;
-
-        .title-checkout {
-          font-size: 21px;
-          font-weight: bold;
-        }
-
-        .product-grid {
-          margin-top: 10px;
-          margin-bottom: 20px;
-          display: grid;
-          grid-template-columns: repeat(12, minmax(0, 1fr));
-
-          .product-grid-left {
-            grid-column: 1 / span 10;
-            display: grid;
-            grid-template-columns: repeat(8, minmax(0, 1fr));
-            margin-right: 10px;
-
-            .image-small {
-              grid-column: 1 / span 2;
-              margin: 0 auto;
-              width: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              img {
-                width: 80%;
-                @media screen and (max-width: 1100px) {
-                  width: 90%;
-                }
-              }
-            }
-
-            .product-details {
-              grid-column: 3 / span 6;
-
-              button {
-                cursor: pointer;
-                background: white;
-                color: #086aa7;
-                font-weight: bold;
-                margin: 10px 0;
-                border: none;
-                border-radius: 3px;
-
-                &:hover {
-                  text-decoration: underline;
-                }
-              }
-
-              .quantity-change {
-                display: grid;
-                grid-template-columns: repeat(3, minmax(0, 1fr));
-                width: 20%;
-                height: 25px;
-
-                .minus {
-                  cursor: pointer;
-                  background: #949494;
-                  border-radius: 3px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                }
-                .quantity-value {
-                  background: #e1e1e1;
-                  border-radius: 3px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                }
-                .plus {
-                  cursor: pointer;
-                  background: #949494;
-                  border-radius: 3px;
-                  display: flex;
-                  justify-content: center;
-                  align-items: center;
-                }
-              }
-            }
-          }
-          .product-grid-right {
-            grid-column: 11 / span 2;
-            padding-top: 10px;
-            font-weight: bold;
-          }
-        }
-        .subtotal {
-          text-align: right;
-
-          .sub-price {
-            font-size: 18px;
-            font-weight: bold;
-          }
-        }
-      }
       .checkout-side {
         grid-column: 7 / span 2;
         height: 250px;
