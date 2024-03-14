@@ -1,10 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 import { theme } from "../theme";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductDetails from "./ProductDetails";
 import { US_CURRENCY } from "../utils/constants";
+import { removeFromCart } from "../redux/cartSlice";
 
 export default function Checkout() {
   const products = useSelector((state) => state.cart.products);
@@ -15,6 +16,7 @@ export default function Checkout() {
       0
     )
   );
+  const dispatch = useDispatch();
 
   return (
     <CheckoutStyled>
@@ -35,7 +37,11 @@ export default function Checkout() {
                       <div className="product-details">
                         <ProductDetails product={product} />
                         <div>
-                          <button>Delete</button>
+                          <button
+                            onClick={() => dispatch(removeFromCart(product.id))}
+                          >
+                            Delete
+                          </button>
                         </div>
                         <div className="quantity-change">
                           <div className="minus">-</div>
@@ -113,6 +119,7 @@ const CheckoutStyled = styled.div`
             grid-column: 1 / span 10;
             display: grid;
             grid-template-columns: repeat(8, minmax(0, 1fr));
+            margin-right: 10px;
 
             .image-small {
               grid-column: 1 / span 2;
@@ -133,7 +140,17 @@ const CheckoutStyled = styled.div`
               grid-column: 3 / span 6;
 
               button {
+                cursor: pointer;
+                background: white;
+                color: #086aa7;
+                font-weight: bold;
                 margin: 10px 0;
+                border: none;
+                border-radius: 3px;
+
+                &:hover {
+                  text-decoration: underline;
+                }
               }
 
               .quantity-change {
