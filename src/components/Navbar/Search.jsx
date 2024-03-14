@@ -55,6 +55,11 @@ export default function Search() {
           className="input"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              onHandleSubmit(e);
+            }
+          }}
         />
         <div className="button-container">
           <button className="button" onClick={onHandleSubmit}>
