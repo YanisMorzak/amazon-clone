@@ -10,7 +10,7 @@ export default function NavbarLeftSide() {
       </Link>
       <div className="left-text">
         <div className="left-text-1">Deliver to</div>
-        <div className="left-text-2">United Kingdom</div>
+        <div className="left-text-2">US of America</div>
       </div>
     </NavbarLeftSideStyled>
   );
