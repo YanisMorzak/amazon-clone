@@ -5,7 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ProductDetails from "./ProductDetails";
 import { US_CURRENCY } from "../utils/constants";
-import { incrementInCart, removeFromCart } from "../redux/cartSlice";
+import {
+  decrementInCart,
+  incrementInCart,
+  removeFromCart,
+} from "../redux/cartSlice";
 
 export default function Checkout() {
   const products = useSelector((state) => state.cart.products);
@@ -44,7 +48,14 @@ export default function Checkout() {
                           </button>
                         </div>
                         <div className="quantity-change">
-                          <div className="minus">-</div>
+                          <div
+                            className="minus"
+                            onClick={() =>
+                              dispatch(decrementInCart(product.id))
+                            }
+                          >
+                            -
+                          </div>
                           <div className="quantity-value">
                             {product.quantity}
                           </div>
