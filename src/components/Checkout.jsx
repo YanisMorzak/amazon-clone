@@ -8,6 +8,14 @@ import { US_CURRENCY } from "../utils/constants";
 
 export default function Checkout() {
   const products = useSelector((state) => state.cart.products);
+  const itemsNumber = useSelector((state) => state.cart.productsNumber);
+  const subtotal = useSelector((state) =>
+    state.cart.products.reduce(
+      (subtotal, product) => subtotal + product.price * product.quantity,
+      0
+    )
+  );
+
   return (
     <CheckoutStyled>
       <div className="container">
@@ -45,7 +53,10 @@ export default function Checkout() {
                 </div>
               );
             })}
-            <div className="subtotal">Subtotal (items): 0</div>
+            <div className="subtotal">
+              Subtotal ({itemsNumber} items):{" "}
+              <span className="sub-price">{US_CURRENCY.format(subtotal)}</span>
+            </div>
           </div>
           <div className="checkout-side"></div>
         </div>
@@ -55,13 +66,13 @@ export default function Checkout() {
 }
 const CheckoutStyled = styled.div`
   background: ${theme.colors.background};
-  height: 100vh;
+  height: 100%;
 
   .container {
     min-width: 1000px;
     max-width: 1500px;
     margin: 0 auto;
-    padding-top: 10px;
+    padding: 10px 0;
 
     .grid-container {
       display: grid;
@@ -113,21 +124,21 @@ const CheckoutStyled = styled.div`
                 height: 25px;
 
                 .minus {
-                  background: grey;
+                  background: #949494;
                   border-radius: 3px;
                   display: flex;
                   justify-content: center;
                   align-items: center;
                 }
                 .quantity-value {
-                  background: #c2c2c2;
+                  background: #e1e1e1;
                   border-radius: 3px;
                   display: flex;
                   justify-content: center;
                   align-items: center;
                 }
                 .plus {
-                  background: grey;
+                  background: #949494;
                   border-radius: 3px;
                   display: flex;
                   justify-content: center;
@@ -144,10 +155,16 @@ const CheckoutStyled = styled.div`
         }
         .subtotal {
           text-align: right;
+
+          .sub-price {
+            font-size: 18px;
+            font-weight: bold;
+          }
         }
       }
       .checkout-side {
         grid-column: 7 / span 2;
+        height: 250px;
       }
     }
   }
