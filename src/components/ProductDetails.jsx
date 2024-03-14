@@ -28,9 +28,10 @@ export default function ProductDetails({ product }) {
 }
 
 const ProductDetailsStyled = styled.div`
-  border-bottom: 1px solid #bbbfbf;
-  padding-bottom: 10px;
+  border-top: 1px solid #bbbfbf;
+
   .title {
+    padding-top: 10px;
     font-size: 21px;
     font-weight: bold;
     margin-bottom: 2px;
@@ -41,18 +42,18 @@ const ProductDetailsStyled = styled.div`
   }
   .brand {
     font-size: 16px;
-    margin-bottom: 2px;
+    margin-bottom: 8px;
     .brand-name {
       color: #086aa7;
     }
   }
   .rating {
     font-size: 16px;
-    margin-bottom: 10px;
+    /* margin-bottom: 10px; */
   }
   .attribute {
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 12px;
+    margin: 12px 0;
   }
 `;

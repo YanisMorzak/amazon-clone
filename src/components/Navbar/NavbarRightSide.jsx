@@ -1,8 +1,11 @@
 import React from "react";
 import { styled } from "styled-components";
 import { ShoppingCartIcon } from "@heroicons/react/24/outline";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 export default function NavbarRightSide() {
+  const cart = useSelector((state) => state.cart.productsNumber);
   return (
     <NavbarRightSideStyled>
       <div className="right-l-text">
@@ -13,10 +16,15 @@ export default function NavbarRightSide() {
         <div className="right-r-text-1">Returns</div>
         <div className="right-r-text-2">& Orders</div>
       </div>
-      <div className="icon">
-        <ShoppingCartIcon className="img" />
-        <div>Cart</div>
-      </div>
+      <Link to={"/checkout"} style={{ color: "white", textDecoration: "none" }}>
+        <div className="icon">
+          <ShoppingCartIcon className="img" />
+          <div className="number-container">
+            <div className="number">{cart}</div>
+          </div>
+          <div>Cart</div>
+        </div>
+      </Link>
     </NavbarRightSideStyled>
   );
 }
@@ -52,6 +60,7 @@ const NavbarRightSideStyled = styled.div`
     }
   }
   .icon {
+    position: relative;
     display: flex;
     align-items: end;
 
@@ -59,9 +68,15 @@ const NavbarRightSideStyled = styled.div`
       height: 48px;
       width: 48px;
     }
-    span {
-      font-size: 16px;
-      font-weight: bold;
+
+    .number-container {
+      .number {
+        position: absolute;
+        top: 25%;
+        left: 30%;
+        font-weight: bold;
+        color: orange;
+      }
     }
   }
 `;

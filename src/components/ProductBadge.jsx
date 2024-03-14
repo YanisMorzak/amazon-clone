@@ -28,6 +28,7 @@ export default function ProductBadge({ badge }) {
 
 const ProductBadgeStyled = styled.div`
   margin-top: 8px;
+  height: 25px;
 
   .amazon-choice {
     border-radius: 2px;

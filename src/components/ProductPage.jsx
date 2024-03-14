@@ -35,7 +35,7 @@ export default function ProductPage() {
               <div className="description">{product.description}</div>
             </div>
             <div className="right">
-              <ProductPurchaseInfos product={product} />
+              <ProductPurchaseInfos product={product} setproduct={setproduct} />
             </div>
           </div>
         </div>

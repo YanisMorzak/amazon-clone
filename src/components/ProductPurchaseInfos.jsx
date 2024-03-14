@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import { US_CURRENCY } from "../utils/constants";
 import { styled } from "styled-components";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../redux/cartSlice";
+import { Link } from "react-router-dom";
 
-export default function ProductPurchaseInfos({ product }) {
+export default function ProductPurchaseInfos({ product, setproduct }) {
+  const dispatch = useDispatch();
+  const [quantity, setQuantity] = useState("1");
+
+  const addQuantityToProduct = () => {
+    setproduct((product.quantity = quantity));
+    return product;
+  };
   return (
     <ProductPurchaseInfosStyled>
       <div className="price">{US_CURRENCY.format(product.price)}</div>
@@ -14,13 +24,23 @@ export default function ProductPurchaseInfos({ product }) {
       <div className="stock">In Stock</div>
       <div className="quantity">
         Quantity:
-        <select className="select">
+        <select
+          onChange={(e) => setQuantity(e.target.value)}
+          className="select"
+        >
           <option>1</option>
           <option>2</option>
           <option>3</option>
         </select>
       </div>
-      <button className="button-cart">Add to Cart</button>
+      <Link to={"/checkout"}>
+        <button
+          onClick={() => dispatch(addToCart(addQuantityToProduct()))}
+          className="button-cart"
+        >
+          Add to Cart
+        </button>
+      </Link>
     </ProductPurchaseInfosStyled>
   );
 }

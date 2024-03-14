@@ -9,7 +9,7 @@ import NavbarBottom from "./NavbarBottom";
 export default function NavBar() {
   return (
     <NavBarStyled>
-      <div className="container">
+      <div className="container-navbar">
         <NavbarLeftSide />
         <div className="search">
           <Search />
@@ -26,7 +26,7 @@ const NavBarStyled = styled.header`
   background: ${theme.colors.default};
   color: white;
 
-  .container {
+  .container-navbar {
     height: 60px;
     display: flex;
     justify-content: space-between;
