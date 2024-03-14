@@ -21,7 +21,7 @@ export default function Checkout() {
       <div className="container">
         <div className="grid-container">
           <div className="product-side">
-            <span>Checkout</span>
+            <span className="title-checkout">Shopping Cart</span>
             {products.map((product) => {
               return (
                 <div key={product.id}>
@@ -58,7 +58,20 @@ export default function Checkout() {
               <span className="sub-price">{US_CURRENCY.format(subtotal)}</span>
             </div>
           </div>
-          <div className="checkout-side"></div>
+          <div className="checkout-side">
+            <div className="delivery-checkout">
+              Your order qualifies for{" "}
+              <span className="delivery-bold">FREE DELIVERY.</span> Delivery
+              Details
+            </div>
+            <div>
+              Subtotal ({itemsNumber} items):{" "}
+              <span className="sub-price-checkout">
+                {US_CURRENCY.format(subtotal)}
+              </span>
+            </div>
+            <button className="btn-checkout">Proceed to Checkout</button>
+          </div>
         </div>
       </div>
     </CheckoutStyled>
@@ -66,7 +79,7 @@ export default function Checkout() {
 }
 const CheckoutStyled = styled.div`
   background: ${theme.colors.background};
-  height: 100%;
+  height: 100vh;
 
   .container {
     min-width: 1000px;
@@ -78,11 +91,17 @@ const CheckoutStyled = styled.div`
       display: grid;
       grid-template-columns: repeat(8, minmax(0, 1fr));
       gap: 10px;
-      background: white;
 
       .product-side {
         grid-column: 1 / span 6;
-        padding: 10px;
+        padding: 10px 15px;
+        background: white;
+        border-radius: 3px;
+
+        .title-checkout {
+          font-size: 21px;
+          font-weight: bold;
+        }
 
         .product-grid {
           margin-top: 10px;
@@ -165,6 +184,35 @@ const CheckoutStyled = styled.div`
       .checkout-side {
         grid-column: 7 / span 2;
         height: 250px;
+        background: white;
+        padding: 20px 15px;
+        border-radius: 3px;
+
+        .delivery-checkout {
+          color: green;
+          margin-bottom: 15px;
+          .delivery-bold {
+            font-weight: bold;
+          }
+        }
+
+        .sub-price-checkout {
+          font-size: 20px;
+          font-weight: bold;
+        }
+
+        .btn-checkout {
+          cursor: pointer;
+          background: #ffd814;
+          border: none;
+          border-radius: 3px;
+          margin-top: 20px;
+          padding: 10px;
+          width: 80%;
+          &:hover {
+            background: #eeca13;
+          }
+        }
       }
     }
   }
