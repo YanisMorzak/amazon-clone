@@ -1,5 +1,5 @@
 import React from "react";
-import { US_CURRENCY } from "../utils/constants";
+import { US_CURRENCY } from "../../utils/constants";
 import { useSelector } from "react-redux";
 import { styled } from "styled-components";
 import CheckoutProductLeftSide from "./CheckoutProductLeftSide";

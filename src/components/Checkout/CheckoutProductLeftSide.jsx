@@ -3,10 +3,10 @@ import {
   decrementInCart,
   incrementInCart,
   removeFromCart,
-} from "../redux/cartSlice";
+} from "../../redux/cartSlice";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import ProductDetails from "./ProductDetails";
+import ProductDetails from "../ProductDetails";
 import { styled } from "styled-components";
 
 export default function CheckoutProductLeftSide({ product }) {

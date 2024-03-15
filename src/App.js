@@ -4,7 +4,7 @@ import HomePage from "./components/HomePage";
 import NavBar from "./components/Navbar/NavBar";
 import ProductPage from "./components/ProductPage";
 import SearchResults from "./components/SearchResults";
-import Checkout from "./components/Checkout";
+import Checkout from "./components/Checkout/Checkout";
 
 export default function App() {
   return (

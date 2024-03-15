@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from "styled-components";
-import { US_CURRENCY } from "../utils/constants";
+import { US_CURRENCY } from "../../utils/constants";
 import { useSelector } from "react-redux";
 
 export default function CheckoutSummarySide() {

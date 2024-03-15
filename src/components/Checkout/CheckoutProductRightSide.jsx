@@ -1,5 +1,5 @@
 import React from "react";
-import { US_CURRENCY } from "../utils/constants";
+import { US_CURRENCY } from "../../utils/constants";
 import { styled } from "styled-components";
 
 export default function CheckoutProductRightSide({ product }) {
