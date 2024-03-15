@@ -1,8 +1,9 @@
 import React from "react";
 import { US_CURRENCY } from "../utils/constants";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { styled } from "styled-components";
 import CheckoutProductLeftSide from "./CheckoutProductLeftSide";
+import CheckoutProductRightSide from "./CheckoutProductRightSide";
 
 export default function CheckoutProductSide() {
   const products = useSelector((state) => state.cart.products);
@@ -22,10 +23,7 @@ export default function CheckoutProductSide() {
           <div key={product.id}>
             <div className="product-grid">
               <CheckoutProductLeftSide product={product} />
-
-              <div className="product-grid-right">
-                <div>{US_CURRENCY.format(product.price)}</div>
-              </div>
+              <CheckoutProductRightSide product={product} />
             </div>
           </div>
         );
@@ -54,12 +52,6 @@ const CheckoutProductSideStyled = styled.div`
     margin-bottom: 20px;
     display: grid;
     grid-template-columns: repeat(12, minmax(0, 1fr));
-
-    .product-grid-right {
-      grid-column: 11 / span 2;
-      padding-top: 10px;
-      font-weight: bold;
-    }
   }
   .subtotal {
     text-align: right;
