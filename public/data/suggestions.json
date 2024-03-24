@@ -50,5 +50,14 @@
     {
         "id" : 13,
         "title": "Apple iPhone 14 Pro - Deep Purple"
+    },
+    {
+        "id" : 14,
+        "title": "Apple iPhone 13 - black"
+    },
+    {
+        "id" : 15,
+        "title": "Apple iPhone 13 - blue"
     }
+    
 ]

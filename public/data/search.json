@@ -194,6 +194,34 @@
             "price": 1039.00,
             "oldPrice": 1099.00,
             "badge": "seller"
+        },
+        {
+            "id" : 14,
+        "title": "Apple iPhone 13 - black",
+        "image": "../images/iphone_13.jpg",
+        "image_small": "../images/iphone_13_small.png",
+        "attribute": "Mobile", 
+        "description" : "6.1-inch Super Retina XDR display featuring Always-On and ProMotion. Dynamic Island, a magical new way to interact with iPhone. 48MP Main camera for up to 4x greater resolution. Cinematic mode now in 4K Dolby Vision up to 30 fps",
+        "brand": "Apple", 
+        "avgRating": 5,
+        "ratings": 1047,
+        "price": 1039.00,
+        "oldPrice": 1099.00,
+        "badge": "seller"
+        },
+        {
+            "id" : 15,
+            "title": "Apple iPhone 13 - blue",
+            "image": "../images/iphone_13_blue.jpg",
+            "image_small": "../images/iphone_13_blue_small.png",
+            "attribute": "Mobile", 
+            "description" : "6.1-inch Super Retina XDR display featuring Always-On and ProMotion. Dynamic Island, a magical new way to interact with iPhone. 48MP Main camera for up to 4x greater resolution. Cinematic mode now in 4K Dolby Vision up to 30 fps",
+            "brand": "Apple", 
+            "avgRating": 5,
+            "ratings": 1047,
+            "price": 1050.00,
+            "oldPrice": 1099.00,
+            "badge": "seller"
         }
     ], 
     "Computers" : [
